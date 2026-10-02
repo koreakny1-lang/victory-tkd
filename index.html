@@ -19,8 +19,10 @@
   --gray:#6f7782;
   --line:#e8e5de;
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;
@@ -28,12 +30,18 @@ body{
   background:#fff;
   line-height:1.7;
 }
+
 a{text-decoration:none;color:inherit}
 img{display:block;width:100%;height:100%;object-fit:cover}
-button,input,textarea{font:inherit}
-.wrap{max-width:1180px;margin:auto;padding:0 24px}
-section{padding:110px 0}
-.gold{color:var(--gold)}
+
+.wrap{
+  max-width:1180px;
+  margin:auto;
+  padding:0 24px;
+}
+
+section{padding:105px 0}
+
 .label{
   color:#b98b16;
   font-size:12px;
@@ -41,6 +49,7 @@ section{padding:110px 0}
   letter-spacing:2px;
   margin-bottom:12px;
 }
+
 .title{
   margin:0;
   font-size:42px;
@@ -48,21 +57,27 @@ section{padding:110px 0}
   letter-spacing:-1.8px;
   word-break:keep-all;
 }
+
 .desc{
   color:var(--gray);
   margin-top:18px;
+  white-space:pre-line;
   word-break:keep-all;
 }
 
 /* HEADER */
+
 header{
   position:fixed;
-  left:0;top:0;width:100%;
+  top:0;
+  left:0;
+  width:100%;
   height:74px;
   z-index:1000;
-  background:rgba(5,18,34,.95);
+  background:rgba(5,18,34,.96);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
+
 .header-inner{
   max-width:1180px;
   height:100%;
@@ -72,19 +87,29 @@ header{
   align-items:center;
   justify-content:space-between;
 }
+
 .logo{
   color:#fff;
   font-size:19px;
   font-weight:900;
 }
+
 .logo b{color:var(--gold)}
-nav{display:flex;gap:27px;align-items:center}
+
+nav{
+  display:flex;
+  gap:27px;
+  align-items:center;
+}
+
 nav a{
   color:#dce3ec;
   font-size:14px;
   font-weight:700;
 }
+
 nav a:hover{color:var(--gold)}
+
 .contact-btn{
   background:var(--gold);
   color:#07172b;
@@ -94,6 +119,7 @@ nav a:hover{color:var(--gold)}
 }
 
 /* HERO */
+
 .hero{
   min-height:820px;
   padding:0;
@@ -103,18 +129,29 @@ nav a:hover{color:var(--gold)}
   align-items:center;
   overflow:hidden;
 }
+
 .hero-bg{
   position:absolute;
   inset:0;
 }
-.hero-bg img{object-position:center}
+
+.hero-bg img{
+  object-position:center;
+}
+
 .hero-bg:after{
   content:"";
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(90deg,rgba(4,15,29,.94) 0%,rgba(4,15,29,.82) 37%,rgba(4,15,29,.35) 72%,rgba(4,15,29,.2) 100%);
+  background:linear-gradient(
+    90deg,
+    rgba(4,15,29,.95) 0%,
+    rgba(4,15,29,.82) 38%,
+    rgba(4,15,29,.38) 72%,
+    rgba(4,15,29,.20) 100%
+  );
 }
+
 .hero-content{
   position:relative;
   z-index:2;
@@ -124,29 +161,36 @@ nav a:hover{color:var(--gold)}
   padding:130px 24px 70px;
   color:#fff;
 }
+
 .hero-small{
   color:var(--gold);
   font-size:12px;
   font-weight:900;
   letter-spacing:2.5px;
 }
+
 .hero h1{
-  max-width:730px;
+  max-width:750px;
   margin:17px 0 20px;
   font-size:64px;
   line-height:1.13;
   letter-spacing:-3px;
+  white-space:pre-line;
 }
+
 .hero p{
-  max-width:600px;
+  max-width:620px;
   color:#d6dde7;
   font-size:18px;
+  white-space:pre-line;
 }
+
 .hero-actions{
   display:flex;
   gap:10px;
   margin-top:32px;
 }
+
 .button{
   display:inline-flex;
   align-items:center;
@@ -155,59 +199,91 @@ nav a:hover{color:var(--gold)}
   padding:0 23px;
   font-weight:900;
 }
-.button.goldbtn{background:var(--gold);color:var(--navy)}
-.button.linebtn{border:1px solid rgba(255,255,255,.45);color:#fff}
+
+.goldbtn{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.linebtn{
+  border:1px solid rgba(255,255,255,.45);
+  color:#fff;
+}
 
 /* STATS */
+
 .stats{
   padding:0;
   background:var(--navy);
   color:#fff;
 }
+
 .stats-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   border-top:1px solid rgba(255,255,255,.12);
 }
+
 .stat{
   padding:35px 25px;
   text-align:center;
   border-right:1px solid rgba(255,255,255,.12);
 }
+
 .stat:last-child{border-right:0}
+
 .stat strong{
   display:block;
   color:var(--gold);
   font-size:28px;
 }
-.stat span{font-size:13px;color:#b9c3d1}
 
-/* GREETING */
-.greeting{background:#fff}
+.stat span{
+  font-size:13px;
+  color:#b9c3d1;
+}
+
+/* TWO COLUMN */
+
 .two{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:75px;
   align-items:center;
 }
-.photo{
+
+.photo-box{
   height:520px;
-  background:#ececec;
+  background:#e7e7e7;
   overflow:hidden;
 }
-.placeholder{
+
+.dynamic-photo{
+  width:100%;
   height:100%;
-  min-height:320px;
-  background:
-    linear-gradient(135deg,#e9e7e1,#d8d5ce);
+  background:linear-gradient(135deg,#e9e7e1,#d8d5ce);
   display:flex;
   align-items:center;
   justify-content:center;
   color:#8c8b87;
   text-align:center;
-  padding:20px;
 }
-.greeting-copy p{color:var(--gray)}
+
+.dynamic-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* GREETING */
+
+.greeting{background:#fff}
+
+.greeting p{
+  color:var(--gray);
+  white-space:pre-line;
+}
+
 .signature{
   margin-top:30px;
   font-weight:900;
@@ -215,23 +291,55 @@ nav a:hover{color:var(--gold)}
 }
 
 /* TEACHERS */
+
 .teachers{background:var(--cream)}
+
 .teacher-grid{
   margin-top:45px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
-.teacher-card{background:#fff}
-.teacher-img{height:370px;background:#ddd}
-.teacher-info{padding:25px}
-.teacher-info small{color:#a37b17;font-weight:900}
-.teacher-info h3{margin:5px 0;font-size:20px}
-.teacher-info p{margin:5px 0;color:var(--gray);font-size:14px}
+
+.teacher-card{
+  background:#fff;
+}
+
+.teacher-img{
+  height:370px;
+  background:#ddd;
+}
+
+.teacher-info{
+  padding:25px;
+}
+
+.teacher-info small{
+  color:#a37b17;
+  font-weight:900;
+}
+
+.teacher-info h3{
+  margin:5px 0;
+  font-size:20px;
+}
+
+.teacher-info p{
+  margin:5px 0;
+  color:var(--gray);
+  font-size:14px;
+  white-space:pre-line;
+}
 
 /* PHILOSOPHY */
-.philosophy{background:var(--navy);color:#fff}
+
+.philosophy{
+  background:var(--navy);
+  color:#fff;
+}
+
 .philosophy .desc{color:#b5c0cf}
+
 .philosophy-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -239,19 +347,44 @@ nav a:hover{color:var(--gold)}
   margin-top:50px;
   background:#2b3b50;
 }
+
 .philosophy-card{
   background:#0d213b;
   padding:36px 28px;
   min-height:245px;
 }
-.philosophy-card .num{color:var(--gold);font-weight:900}
-.philosophy-card h3{font-size:20px;margin:15px 0 8px}
-.philosophy-card p{color:#b8c2cf;font-size:14px}
 
-/* KINDER */
+.philosophy-card .num{
+  color:var(--gold);
+  font-weight:900;
+}
+
+.philosophy-card h3{
+  font-size:20px;
+  margin:15px 0 8px;
+}
+
+.philosophy-card p{
+  color:#b8c2cf;
+  font-size:14px;
+  white-space:pre-line;
+}
+
+/* KIDS */
+
 .kinder{background:#fff}
-.kinder-photo{height:560px}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
+
+.kinder-photo{
+  height:560px;
+}
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:25px;
+}
+
 .badge{
   padding:8px 12px;
   background:#f2efe7;
@@ -260,28 +393,69 @@ nav a:hover{color:var(--gold)}
 }
 
 /* PROGRAM */
-.program{background:#f5f4f0}
+
+.program{
+  background:#f5f4f0;
+}
+
 .program-grid{
   margin-top:45px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:16px;
 }
+
 .program-card{
   background:#fff;
   overflow:hidden;
 }
-.program-img{height:230px;background:#ddd}
-.program-copy{padding:25px}
-.program-copy small{color:#b28618;font-weight:900}
-.program-copy h3{margin:5px 0 8px;font-size:20px}
-.program-copy p{margin:0;color:var(--gray);font-size:14px}
+
+.program-img{
+  height:230px;
+  background:#ddd;
+}
+
+.program-copy{
+  padding:25px;
+}
+
+.program-copy small{
+  color:#b28618;
+  font-weight:900;
+}
+
+.program-copy h3{
+  margin:5px 0 8px;
+  font-size:20px;
+}
+
+.program-copy p{
+  margin:0;
+  color:var(--gray);
+  font-size:14px;
+  white-space:pre-line;
+}
 
 /* ADULT */
-.adult{background:var(--navy);color:#fff}
+
+.adult{
+  background:var(--navy);
+  color:#fff;
+}
+
 .adult .desc{color:#bac3d0}
-.adult-photo{height:560px}
-.adult-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+
+.adult-photo{
+  height:560px;
+}
+
+.adult-tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+
 .adult-tag{
   border:1px solid rgba(255,255,255,.25);
   padding:8px 12px;
@@ -289,7 +463,9 @@ nav a:hover{color:var(--gold)}
 }
 
 /* SPACE */
+
 .space{background:#fff}
+
 .space-grid{
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
@@ -297,39 +473,62 @@ nav a:hover{color:var(--gold)}
   gap:10px;
   margin-top:40px;
 }
-.space-item{background:#ddd;overflow:hidden}
-.space-item:first-child{grid-row:1/3}
+
+.space-item{
+  background:#ddd;
+  overflow:hidden;
+}
+
+.space-item:first-child{
+  grid-row:1/3;
+}
 
 /* REVIEW */
+
 .reviews{background:var(--cream)}
+
 .review-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:15px;
   margin-top:40px;
 }
+
 .review-card{
   background:#fff;
   padding:30px;
   min-height:220px;
   border:1px solid #e8e5dd;
 }
-.stars{color:#d29f17;letter-spacing:2px}
-.review-card p{color:#5f6875}
+
+.stars{
+  color:#d29f17;
+  letter-spacing:2px;
+}
+
+.review-card p{
+  color:#5f6875;
+  white-space:pre-line;
+}
+
 .review-card small{color:#999}
 
 /* SCHEDULE */
+
 .schedule{background:#fff}
+
 .schedule-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:30px;
   margin-top:45px;
 }
+
 .schedule-box{
   border:1px solid var(--line);
   padding:30px;
 }
+
 .schedule-row{
   display:flex;
   justify-content:space-between;
@@ -337,47 +536,101 @@ nav a:hover{color:var(--gold)}
   padding:15px 0;
   border-bottom:1px solid var(--line);
 }
+
 .schedule-row:last-child{border-bottom:0}
-.schedule-row strong{font-size:15px}
-.schedule-row span{text-align:right;color:var(--gray)}
+
+.schedule-row strong{
+  font-size:15px;
+}
+
+.schedule-row span{
+  text-align:right;
+  color:var(--gray);
+  white-space:pre-line;
+}
+
 .price{
   background:var(--navy);
   color:#fff;
   padding:30px;
 }
+
 .price h3{margin-top:0}
+
 .price-line{
   display:flex;
   justify-content:space-between;
+  gap:20px;
   padding:14px 0;
   border-bottom:1px solid rgba(255,255,255,.12);
 }
-.price-line span:last-child{color:var(--gold);font-weight:900}
+
+.price-line span:last-child{
+  color:var(--gold);
+  font-weight:900;
+}
 
 /* FAQ */
+
 .faq{background:#f6f5f1}
-.faq-list{margin-top:40px;border-top:1px solid #ddd}
-.faq-item{padding:25px 5px;border-bottom:1px solid #ddd}
-.question{font-size:17px;font-weight:900}
-.answer{margin-top:9px;color:var(--gray)}
+
+.faq-list{
+  margin-top:40px;
+  border-top:1px solid #ddd;
+}
+
+.faq-item{
+  padding:25px 5px;
+  border-bottom:1px solid #ddd;
+}
+
+.question{
+  font-size:17px;
+  font-weight:900;
+}
+
+.answer{
+  margin-top:9px;
+  color:var(--gray);
+  white-space:pre-line;
+}
 
 /* TRIAL */
+
 .trial{
   background:var(--gold);
   color:var(--navy);
 }
+
 .trial-inner{
   display:grid;
   grid-template-columns:1fr .8fr;
   gap:60px;
   align-items:center;
 }
-.trial h2{font-size:45px;line-height:1.25;margin:0}
+
+.trial h2{
+  font-size:45px;
+  line-height:1.25;
+  margin:0;
+  white-space:pre-line;
+}
+
+.trial-copy{
+  white-space:pre-line;
+}
+
 .trial-box{
   background:#fff;
   padding:30px;
 }
-.trial-box p{margin:0 0 15px;color:#5f6875}
+
+.trial-box p{
+  margin:0 0 15px;
+  color:#5f6875;
+  white-space:pre-line;
+}
+
 .trial-button{
   display:block;
   text-align:center;
@@ -388,38 +641,51 @@ nav a:hover{color:var(--gold)}
 }
 
 /* LOCATION */
+
 .location{background:#fff}
+
 .location-grid{
   display:grid;
   grid-template-columns:.85fr 1.15fr;
   gap:50px;
   margin-top:40px;
 }
+
 .location-info{
   background:var(--navy);
   color:#fff;
   padding:35px;
 }
+
 .location-row{
   padding:16px 0;
   border-bottom:1px solid rgba(255,255,255,.12);
 }
-.location-row small{display:block;color:var(--gold);font-weight:900}
+
+.location-row small{
+  display:block;
+  color:var(--gold);
+  font-weight:900;
+}
+
 .map-placeholder{
   min-height:420px;
   background:#e9e9e7;
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
   color:#888;
 }
 
 /* FOOTER */
+
 footer{
   background:#040e1b;
   color:#8f9baa;
   padding:45px 24px;
 }
+
 .footer-inner{
   max-width:1180px;
   margin:auto;
@@ -427,41 +693,126 @@ footer{
   justify-content:space-between;
   gap:30px;
 }
-.footer-name{color:#fff;font-weight:900}
+
+.footer-name{
+  color:#fff;
+  font-weight:900;
+}
+
 .footer-name b{color:var(--gold)}
 
+/* MOBILE */
+
 @media(max-width:900px){
+
   nav{display:none}
+
   .hero h1{font-size:48px}
-  .two,.trial-inner,.location-grid,.schedule-grid{grid-template-columns:1fr}
-  .teacher-grid,.program-grid,.review-grid{grid-template-columns:1fr 1fr}
-  .philosophy-grid{grid-template-columns:1fr 1fr}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .space-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  .space-item,.space-item:first-child{height:260px;grid-row:auto}
+
+  .two,
+  .trial-inner,
+  .location-grid,
+  .schedule-grid{
+    grid-template-columns:1fr;
+  }
+
+  .teacher-grid,
+  .program-grid,
+  .review-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .philosophy-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .space-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
+  }
+
+  .space-item,
+  .space-item:first-child{
+    height:260px;
+    grid-row:auto;
+  }
 }
+
 @media(max-width:600px){
+
   section{padding:75px 0}
+
   .wrap{padding:0 18px}
+
   header{height:66px}
+
   .header-inner{padding:0 17px}
+
   .logo{font-size:16px}
-  .contact-btn{font-size:12px;padding:8px 10px}
+
+  .contact-btn{
+    font-size:12px;
+    padding:8px 10px;
+  }
+
   .hero{min-height:670px}
-  .hero-content{padding:100px 18px 60px}
-  .hero h1{font-size:39px;letter-spacing:-2px}
+
+  .hero-content{
+    padding:100px 18px 60px;
+  }
+
+  .hero h1{
+    font-size:39px;
+    letter-spacing:-2px;
+  }
+
   .hero p{font-size:15px}
-  .hero-actions{flex-direction:column;align-items:flex-start}
+
+  .hero-actions{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
   .title{font-size:32px}
+
   .two{gap:35px}
-  .photo,.kinder-photo,.adult-photo{height:390px}
-  .teacher-grid,.program-grid,.review-grid,.philosophy-grid{grid-template-columns:1fr}
+
+  .photo-box,
+  .kinder-photo,
+  .adult-photo{
+    height:390px;
+  }
+
+  .teacher-grid,
+  .program-grid,
+  .review-grid,
+  .philosophy-grid{
+    grid-template-columns:1fr;
+  }
+
   .teacher-img{height:340px}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .stat{padding:24px 10px}
-  .space-grid{grid-template-columns:1fr}
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stat{
+    padding:24px 10px;
+  }
+
+  .space-grid{
+    grid-template-columns:1fr;
+  }
+
   .trial h2{font-size:34px}
-  .footer-inner{flex-direction:column}
+
+  .footer-inner{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
@@ -470,7 +821,11 @@ footer{
 
 <header>
 <div class="header-inner">
-  <a class="logo" href="#home">용인대 <b>승리태권도</b></a>
+
+  <a class="logo" href="#home">
+    용인대 <b>승리태권도</b>
+  </a>
+
   <nav>
     <a href="#greeting">도장소개</a>
     <a href="#teachers">지도진</a>
@@ -479,485 +834,697 @@ footer{
     <a href="#schedule">시간표</a>
     <a href="#location">오시는 길</a>
   </nav>
-  <a href="#trial" class="contact-btn">무료체험 신청</a>
+
+  <a href="#trial" class="contact-btn">
+    무료체험 신청
+  </a>
+
 </div>
 </header>
 
+
 <main>
 
-<!-- 1. HERO -->
+<!-- 메인 -->
 <section class="hero" id="home">
+
   <div class="hero-bg">
-    <img data-image-key="hero_photo"
-         src="KakaoTalk_20260927_174332030_12.jpg"
-         alt="용인대 승리태권도">
+    <img
+      id="hero_photo"
+      src="KakaoTalk_20260927_174332030_12.jpg"
+      alt="용인대 승리태권도">
   </div>
 
   <div class="hero-content">
-    <div class="hero-small">YONGIN UNIVERSITY · VICTORY TAEKWONDO</div>
 
-    <h1 data-text-key="hero_title">
-      하루 중 가장<br>행복한 1시간.
-    </h1>
+    <div class="hero-small">
+      YONGIN UNIVERSITY · VICTORY TAEKWONDO
+    </div>
 
-    <p data-text-key="hero_desc">
-      아이들이 즐겁게 뛰고, 배우고, 성장하는 곳.<br>
-      화정동에서 함께해 온 용인대 승리태권도입니다.
-    </p>
+    <h1 data-content="hero_title">하루 중 가장
+행복한 1시간.</h1>
+
+    <p data-content="hero_desc">아이들이 즐겁게 뛰고, 배우고, 성장하는 곳.
+화정동에서 함께해 온 용인대 승리태권도입니다.</p>
 
     <div class="hero-actions">
       <a href="#trial" class="button goldbtn">무료체험 신청</a>
       <a href="#program" class="button linebtn">프로그램 보기</a>
     </div>
+
   </div>
 </section>
 
-<!-- 2. STATS -->
+
+<!-- 숫자 -->
 <section class="stats">
 <div class="wrap">
+
 <div class="stats-grid">
+
   <div class="stat">
-    <strong data-text-key="stat1_big">15년</strong>
-    <span data-text-key="stat1_small">화정동에서 함께</span>
+    <strong data-content="stat1_big">15년</strong>
+    <span data-content="stat1_small">화정동에서 함께</span>
   </div>
+
   <div class="stat">
-    <strong data-text-key="stat2_big">219</strong>
-    <span data-text-key="stat2_small">네이버 리뷰</span>
+    <strong data-content="stat2_big">219</strong>
+    <span data-content="stat2_small">네이버 리뷰</span>
   </div>
+
   <div class="stat">
-    <strong data-text-key="stat3_big">5세~성인</strong>
-    <span data-text-key="stat3_small">연령별 맞춤 수련</span>
+    <strong data-content="stat3_big">5세~성인</strong>
+    <span data-content="stat3_small">연령별 맞춤 수련</span>
   </div>
+
   <div class="stat">
-    <strong data-text-key="stat4_big">화정 전지역</strong>
-    <span data-text-key="stat4_small">차량 운행</span>
+    <strong data-content="stat4_big">화정 전지역</strong>
+    <span data-content="stat4_small">차량 운행</span>
   </div>
+
 </div>
 </div>
 </section>
 
-<!-- 3. 관장 인사말 -->
+
+<!-- 관장 -->
 <section class="greeting" id="greeting">
 <div class="wrap">
 <div class="two">
 
-  <div class="photo">
-    <div class="placeholder" data-placeholder="director_photo">
-      관리자에서<br>관장님 사진을 등록해주세요.
+  <div class="photo-box">
+    <div id="director_photo" class="dynamic-photo">
+      관장님 사진
     </div>
   </div>
 
-  <div class="greeting-copy">
-    <div class="label">DIRECTOR'S MESSAGE</div>
-    <h2 class="title" data-text-key="director_title">
-      아이가 행복해야<br>태권도도 오래갑니다.
-    </h2>
+  <div>
 
-    <p data-text-key="director_text1">
+    <div class="label">DIRECTOR'S MESSAGE</div>
+
+    <h2 class="title" data-content="director_title">아이가 행복해야
+태권도도 오래갑니다.</h2>
+
+    <p data-content="director_text1">
       안녕하세요. 용인대 승리태권도입니다.
       아이들이 태권도장에 오는 시간이 기다려지고,
       운동을 통해 스스로 성장하는 기쁨을 느낄 수 있도록 지도하겠습니다.
     </p>
 
-    <p data-text-key="director_text2">
+    <p data-content="director_text2">
       실력뿐 아니라 예절, 자신감, 책임감과
       끝까지 해내는 힘을 함께 가르치겠습니다.
     </p>
 
-    <div class="signature" data-text-key="director_name">
+    <div class="signature" data-content="director_name">
       용인대 승리태권도 관장
     </div>
+
   </div>
 
 </div>
 </div>
 </section>
 
-<!-- 4. 지도진 -->
+
+<!-- 지도진 -->
 <section class="teachers" id="teachers">
 <div class="wrap">
 
-  <div class="label">OUR TEAM</div>
-  <h2 class="title">아이 곁에서 함께하는<br>가족 같은 지도진</h2>
-  <p class="desc">아이 한 명 한 명을 세심하게 살피며 즐겁고 안전하게 지도합니다.</p>
+<div class="label">OUR TEAM</div>
 
-  <div class="teacher-grid">
+<h2 class="title">
+  아이 곁에서 함께하는<br>
+  가족 같은 지도진
+</h2>
 
-    <article class="teacher-card">
-      <div class="teacher-img">
-        <div class="placeholder" data-placeholder="teacher1_photo">지도진 사진 1</div>
-      </div>
-      <div class="teacher-info">
-        <small data-text-key="teacher1_role">관장</small>
-        <h3 data-text-key="teacher1_name">지도진 이름</h3>
-        <p data-text-key="teacher1_desc">지도진 소개를 관리자에서 입력할 수 있습니다.</p>
-      </div>
-    </article>
+<p class="desc">
+  아이 한 명 한 명을 세심하게 살피며 즐겁고 안전하게 지도합니다.
+</p>
 
-    <article class="teacher-card">
-      <div class="teacher-img">
-        <div class="placeholder" data-placeholder="teacher2_photo">지도진 사진 2</div>
-      </div>
-      <div class="teacher-info">
-        <small data-text-key="teacher2_role">사범</small>
-        <h3 data-text-key="teacher2_name">지도진 이름</h3>
-        <p data-text-key="teacher2_desc">지도진 소개를 관리자에서 입력할 수 있습니다.</p>
-      </div>
-    </article>
 
-    <article class="teacher-card">
-      <div class="teacher-img">
-        <div class="placeholder" data-placeholder="teacher3_photo">지도진 사진 3</div>
-      </div>
-      <div class="teacher-info">
-        <small data-text-key="teacher3_role">사범</small>
-        <h3 data-text-key="teacher3_name">지도진 이름</h3>
-        <p data-text-key="teacher3_desc">지도진 소개를 관리자에서 입력할 수 있습니다.</p>
-      </div>
-    </article>
+<div class="teacher-grid">
 
+<article class="teacher-card">
+
+  <div class="teacher-img">
+    <div id="teacher1_photo" class="dynamic-photo">
+      지도진 사진 1
+    </div>
   </div>
+
+  <div class="teacher-info">
+    <small data-content="teacher1_role">관장</small>
+    <h3 data-content="teacher1_name">지도진 이름</h3>
+    <p data-content="teacher1_desc">지도진 소개를 입력해주세요.</p>
+  </div>
+
+</article>
+
+
+<article class="teacher-card">
+
+  <div class="teacher-img">
+    <div id="teacher2_photo" class="dynamic-photo">
+      지도진 사진 2
+    </div>
+  </div>
+
+  <div class="teacher-info">
+    <small data-content="teacher2_role">사범</small>
+    <h3 data-content="teacher2_name">지도진 이름</h3>
+    <p data-content="teacher2_desc">지도진 소개를 입력해주세요.</p>
+  </div>
+
+</article>
+
+
+<article class="teacher-card">
+
+  <div class="teacher-img">
+    <div id="teacher3_photo" class="dynamic-photo">
+      지도진 사진 3
+    </div>
+  </div>
+
+  <div class="teacher-info">
+    <small data-content="teacher3_role">사범</small>
+    <h3 data-content="teacher3_name">지도진 이름</h3>
+    <p data-content="teacher3_desc">지도진 소개를 입력해주세요.</p>
+  </div>
+
+</article>
+
+</div>
 </div>
 </section>
 
-<!-- 5. 교육철학 -->
+
+<!-- 교육철학 -->
 <section class="philosophy">
 <div class="wrap">
-  <div class="label">OUR PHILOSOPHY</div>
-  <h2 class="title">태권도보다 먼저<br>사람을 가르칩니다.</h2>
-  <p class="desc">운동을 잘하는 것만큼 바르게 성장하는 과정을 중요하게 생각합니다.</p>
 
-  <div class="philosophy-grid">
-    <div class="philosophy-card">
-      <div class="num">01</div>
-      <h3 data-text-key="philo1_title">예절</h3>
-      <p data-text-key="philo1_desc">인사와 배려를 통해 상대를 존중하는 마음을 배웁니다.</p>
-    </div>
-    <div class="philosophy-card">
-      <div class="num">02</div>
-      <h3 data-text-key="philo2_title">자신감</h3>
-      <p data-text-key="philo2_desc">작은 성공을 반복하며 스스로 할 수 있다는 자신감을 키웁니다.</p>
-    </div>
-    <div class="philosophy-card">
-      <div class="num">03</div>
-      <h3 data-text-key="philo3_title">도전</h3>
-      <p data-text-key="philo3_desc">실패해도 다시 시도하며 끝까지 해내는 힘을 기릅니다.</p>
-    </div>
-    <div class="philosophy-card">
-      <div class="num">04</div>
-      <h3 data-text-key="philo4_title">즐거움</h3>
-      <p data-text-key="philo4_desc">즐거운 수련 속에서 운동을 좋아하는 습관을 만들어갑니다.</p>
-    </div>
-  </div>
+<div class="label">OUR PHILOSOPHY</div>
+
+<h2 class="title">
+  태권도보다 먼저<br>
+  사람을 가르칩니다.
+</h2>
+
+<p class="desc">
+  운동을 잘하는 것만큼 바르게 성장하는 과정을 중요하게 생각합니다.
+</p>
+
+
+<div class="philosophy-grid">
+
+<div class="philosophy-card">
+  <div class="num">01</div>
+  <h3 data-content="philo1_title">예절</h3>
+  <p data-content="philo1_desc">인사와 배려를 통해 상대를 존중하는 마음을 배웁니다.</p>
+</div>
+
+<div class="philosophy-card">
+  <div class="num">02</div>
+  <h3 data-content="philo2_title">자신감</h3>
+  <p data-content="philo2_desc">작은 성공을 반복하며 스스로 할 수 있다는 자신감을 키웁니다.</p>
+</div>
+
+<div class="philosophy-card">
+  <div class="num">03</div>
+  <h3 data-content="philo3_title">도전</h3>
+  <p data-content="philo3_desc">실패해도 다시 시도하며 끝까지 해내는 힘을 기릅니다.</p>
+</div>
+
+<div class="philosophy-card">
+  <div class="num">04</div>
+  <h3 data-content="philo4_title">즐거움</h3>
+  <p data-content="philo4_desc">즐거운 수련 속에서 운동을 좋아하는 습관을 만들어갑니다.</p>
+</div>
+
+</div>
 </div>
 </section>
 
-<!-- 6. 유치부 -->
+
+<!-- 유치부 -->
 <section class="kinder">
 <div class="wrap">
 <div class="two">
 
-  <div>
-    <div class="label">KIDS CLASS</div>
-    <h2 class="title" data-text-key="kids_title">
-      5~7세 아이들을 위한<br>유치부 맞춤 수련
-    </h2>
-    <p class="desc" data-text-key="kids_desc">
-      아이들의 눈높이에 맞춘 태권도와 다양한 신체활동으로
-      즐겁게 움직이고 자신감을 키워갑니다.
-    </p>
+<div>
 
-    <div class="badges">
-      <span class="badge">즐거운 신체활동</span>
-      <span class="badge">기초체력</span>
-      <span class="badge">예절교육</span>
-      <span class="badge">자신감</span>
-    </div>
+  <div class="label">KIDS CLASS</div>
+
+  <h2 class="title" data-content="kids_title">5~7세 아이들을 위한
+유치부 맞춤 수련</h2>
+
+  <p class="desc" data-content="kids_desc">
+    아이들의 눈높이에 맞춘 태권도와 다양한 신체활동으로
+    즐겁게 움직이고 자신감을 키워갑니다.
+  </p>
+
+  <div class="badges">
+    <span class="badge">즐거운 신체활동</span>
+    <span class="badge">기초체력</span>
+    <span class="badge">예절교육</span>
+    <span class="badge">자신감</span>
   </div>
 
-  <div class="kinder-photo">
-    <div class="placeholder" data-placeholder="kids_photo">
-      관리자에서<br>유치부 사진을 등록해주세요.
-    </div>
+</div>
+
+
+<div class="kinder-photo">
+  <div id="kids_photo" class="dynamic-photo">
+    유치부 사진
   </div>
+</div>
 
 </div>
 </div>
 </section>
 
-<!-- 7. 프로그램 6개 -->
+
+<!-- 프로그램 -->
 <section class="program" id="program">
 <div class="wrap">
 
 <div class="label">PROGRAM</div>
-<h2 class="title">아이들의 성장 단계에 맞춘<br>다양한 프로그램</h2>
-<p class="desc">수련 목적과 연령에 맞춰 체계적으로 지도합니다.</p>
+
+<h2 class="title">
+  아이들의 성장 단계에 맞춘<br>
+  다양한 프로그램
+</h2>
+
+<p class="desc">
+  수련 목적과 연령에 맞춰 체계적으로 지도합니다.
+</p>
+
 
 <div class="program-grid">
 
-  <article class="program-card">
-    <div class="program-img"><div class="placeholder" data-placeholder="program1_photo">프로그램 사진</div></div>
-    <div class="program-copy">
-      <small>PROGRAM 01</small>
-      <h3 data-text-key="program1_title">유치부 태권도</h3>
-      <p data-text-key="program1_desc">놀이와 태권도를 접목한 즐거운 수련입니다.</p>
-    </div>
-  </article>
+<article class="program-card">
+  <div class="program-img">
+    <div id="program1_photo" class="dynamic-photo">프로그램 사진 1</div>
+  </div>
+  <div class="program-copy">
+    <small>PROGRAM 01</small>
+    <h3 data-content="program1_title">유치부 태권도</h3>
+    <p data-content="program1_desc">놀이와 태권도를 접목한 즐거운 수련입니다.</p>
+  </div>
+</article>
 
-  <article class="program-card">
-    <div class="program-img"><div class="placeholder" data-placeholder="program2_photo">프로그램 사진</div></div>
-    <div class="program-copy">
-      <small>PROGRAM 02</small>
-      <h3 data-text-key="program2_title">초등부 태권도</h3>
-      <p data-text-key="program2_desc">기초체력과 태권도 기본기를 체계적으로 익힙니다.</p>
-    </div>
-  </article>
 
-  <article class="program-card">
-    <div class="program-img"><div class="placeholder" data-placeholder="program3_photo">프로그램 사진</div></div>
-    <div class="program-copy">
-      <small>PROGRAM 03</small>
-      <h3 data-text-key="program3_title">품새 수련</h3>
-      <p data-text-key="program3_desc">정확한 기본동작과 품새 실력을 향상합니다.</p>
-    </div>
-  </article>
+<article class="program-card">
+  <div class="program-img">
+    <div id="program2_photo" class="dynamic-photo">프로그램 사진 2</div>
+  </div>
+  <div class="program-copy">
+    <small>PROGRAM 02</small>
+    <h3 data-content="program2_title">초등부 태권도</h3>
+    <p data-content="program2_desc">기초체력과 태권도 기본기를 체계적으로 익힙니다.</p>
+  </div>
+</article>
 
-  <article class="program-card">
-    <div class="program-img"><div class="placeholder" data-placeholder="program4_photo">프로그램 사진</div></div>
-    <div class="program-copy">
-      <small>PROGRAM 04</small>
-      <h3 data-text-key="program4_title">체력 · 성장운동</h3>
-      <p data-text-key="program4_desc">다양한 운동으로 균형 있는 체력을 기릅니다.</p>
-    </div>
-  </article>
 
-  <article class="program-card">
-    <div class="program-img"><div class="placeholder" data-placeholder="program5_photo">프로그램 사진</div></div>
-    <div class="program-copy">
-      <small>PROGRAM 05</small>
-      <h3 data-text-key="program5_title">학교체육</h3>
-      <p data-text-key="program5_desc">줄넘기와 구기종목 등 다양한 활동을 경험합니다.</p>
-    </div>
-  </article>
+<article class="program-card">
+  <div class="program-img">
+    <div id="program3_photo" class="dynamic-photo">프로그램 사진 3</div>
+  </div>
+  <div class="program-copy">
+    <small>PROGRAM 03</small>
+    <h3 data-content="program3_title">품새 수련</h3>
+    <p data-content="program3_desc">정확한 기본동작과 품새 실력을 향상합니다.</p>
+  </div>
+</article>
 
-  <article class="program-card">
-    <div class="program-img"><div class="placeholder" data-placeholder="program6_photo">프로그램 사진</div></div>
-    <div class="program-copy">
-      <small>PROGRAM 06</small>
-      <h3 data-text-key="program6_title">인성교육</h3>
-      <p data-text-key="program6_desc">바른 생각이 바른 행동으로 이어지도록 지도합니다.</p>
-    </div>
-  </article>
+
+<article class="program-card">
+  <div class="program-img">
+    <div id="program4_photo" class="dynamic-photo">프로그램 사진 4</div>
+  </div>
+  <div class="program-copy">
+    <small>PROGRAM 04</small>
+    <h3 data-content="program4_title">체력 · 성장운동</h3>
+    <p data-content="program4_desc">다양한 운동으로 균형 있는 체력을 기릅니다.</p>
+  </div>
+</article>
+
+
+<article class="program-card">
+  <div class="program-img">
+    <div id="program5_photo" class="dynamic-photo">프로그램 사진 5</div>
+  </div>
+  <div class="program-copy">
+    <small>PROGRAM 05</small>
+    <h3 data-content="program5_title">학교체육</h3>
+    <p data-content="program5_desc">줄넘기와 구기종목 등 다양한 활동을 경험합니다.</p>
+  </div>
+</article>
+
+
+<article class="program-card">
+  <div class="program-img">
+    <div id="program6_photo" class="dynamic-photo">프로그램 사진 6</div>
+  </div>
+  <div class="program-copy">
+    <small>PROGRAM 06</small>
+    <h3 data-content="program6_title">인성교육</h3>
+    <p data-content="program6_desc">바른 생각이 바른 행동으로 이어지도록 지도합니다.</p>
+  </div>
+</article>
 
 </div>
 </div>
 </section>
 
-<!-- 8. 성인부 -->
+
+<!-- 성인부 -->
 <section class="adult" id="adult">
 <div class="wrap">
 <div class="two">
 
-  <div class="adult-photo">
-    <div class="placeholder" data-placeholder="adult_photo">
-      관리자에서<br>성인부 사진을 등록해주세요.
-    </div>
+<div class="adult-photo">
+  <div id="adult_photo" class="dynamic-photo">
+    성인부 사진
+  </div>
+</div>
+
+
+<div>
+
+  <div class="label">ADULT CLASS</div>
+
+  <h2 class="title" data-content="adult_title">어른이 되어
+다시 시작하는 태권도</h2>
+
+  <p class="desc" data-content="adult_desc">
+    체력 향상, 스트레스 해소, 품새와 발차기까지.
+    처음 시작하는 성인도 부담 없이 함께할 수 있습니다.
+  </p>
+
+  <div class="adult-tags">
+    <span class="adult-tag">초보자 환영</span>
+    <span class="adult-tag">체력 향상</span>
+    <span class="adult-tag">품새</span>
+    <span class="adult-tag">발차기</span>
   </div>
 
-  <div>
-    <div class="label">ADULT CLASS</div>
-    <h2 class="title" data-text-key="adult_title">
-      어른이 되어<br>다시 시작하는 태권도
-    </h2>
-    <p class="desc" data-text-key="adult_desc">
-      체력 향상, 스트레스 해소, 품새와 발차기까지.
-      처음 시작하는 성인도 부담 없이 함께할 수 있습니다.
-    </p>
-
-    <div class="adult-tags">
-      <span class="adult-tag">초보자 환영</span>
-      <span class="adult-tag">체력 향상</span>
-      <span class="adult-tag">품새</span>
-      <span class="adult-tag">발차기</span>
-    </div>
-  </div>
+</div>
 
 </div>
 </div>
 </section>
 
-<!-- 9. 수련공간 -->
+
+<!-- 수련공간 -->
 <section class="space">
 <div class="wrap">
+
 <div class="label">TRAINING SPACE</div>
-<h2 class="title">아이들이 마음껏 뛰는<br>승리태권도의 공간</h2>
-<p class="desc">수련공간 사진은 관리자에서 자유롭게 교체할 수 있습니다.</p>
+
+<h2 class="title">
+  아이들이 마음껏 뛰는<br>
+  승리태권도의 공간
+</h2>
+
+<p class="desc">
+  수련공간 사진은 관리자에서 자유롭게 교체할 수 있습니다.
+</p>
+
 
 <div class="space-grid">
-  <div class="space-item"><div class="placeholder" data-placeholder="space1_photo">수련공간 사진 1</div></div>
-  <div class="space-item"><div class="placeholder" data-placeholder="space2_photo">수련공간 사진 2</div></div>
-  <div class="space-item"><div class="placeholder" data-placeholder="space3_photo">수련공간 사진 3</div></div>
-  <div class="space-item"><div class="placeholder" data-placeholder="space4_photo">수련공간 사진 4</div></div>
-  <div class="space-item"><div class="placeholder" data-placeholder="space5_photo">수련공간 사진 5</div></div>
+
+  <div class="space-item">
+    <div id="space1_photo" class="dynamic-photo">수련공간 사진 1</div>
+  </div>
+
+  <div class="space-item">
+    <div id="space2_photo" class="dynamic-photo">수련공간 사진 2</div>
+  </div>
+
+  <div class="space-item">
+    <div id="space3_photo" class="dynamic-photo">수련공간 사진 3</div>
+  </div>
+
+  <div class="space-item">
+    <div id="space4_photo" class="dynamic-photo">수련공간 사진 4</div>
+  </div>
+
+  <div class="space-item">
+    <div id="space5_photo" class="dynamic-photo">수련공간 사진 5</div>
+  </div>
+
 </div>
 </div>
 </section>
 
-<!-- 10. 리뷰 -->
+
+<!-- 후기 -->
 <section class="reviews">
 <div class="wrap">
+
 <div class="label">PARENTS REVIEW</div>
-<h2 class="title">부모님이 직접 전해주신<br>승리태권도 이야기</h2>
+
+<h2 class="title">
+  부모님이 직접 전해주신<br>
+  승리태권도 이야기
+</h2>
+
 
 <div class="review-grid">
-  <div class="review-card">
-    <div class="stars">★★★★★</div>
-    <p data-text-key="review1">아이가 태권도 가는 날을 기다릴 만큼 즐겁게 다니고 있습니다.</p>
-    <small>네이버 리뷰</small>
-  </div>
-  <div class="review-card">
-    <div class="stars">★★★★★</div>
-    <p data-text-key="review2">운동뿐 아니라 예절과 자신감도 함께 좋아지는 것이 보여 만족합니다.</p>
-    <small>네이버 리뷰</small>
-  </div>
-  <div class="review-card">
-    <div class="stars">★★★★★</div>
-    <p data-text-key="review3">아이들을 세심하게 지도해주셔서 믿고 보내고 있습니다.</p>
-    <small>네이버 리뷰</small>
-  </div>
+
+<div class="review-card">
+  <div class="stars">★★★★★</div>
+  <p data-content="review1">
+    아이가 태권도 가는 날을 기다릴 만큼 즐겁게 다니고 있습니다.
+  </p>
+  <small>네이버 리뷰</small>
+</div>
+
+<div class="review-card">
+  <div class="stars">★★★★★</div>
+  <p data-content="review2">
+    운동뿐 아니라 예절과 자신감도 함께 좋아지는 것이 보여 만족합니다.
+  </p>
+  <small>네이버 리뷰</small>
+</div>
+
+<div class="review-card">
+  <div class="stars">★★★★★</div>
+  <p data-content="review3">
+    아이들을 세심하게 지도해주셔서 믿고 보내고 있습니다.
+  </p>
+  <small>네이버 리뷰</small>
+</div>
+
 </div>
 </div>
 </section>
 
-<!-- 11. 시간표 및 수련비 -->
+
+<!-- 시간표 -->
 <section class="schedule" id="schedule">
 <div class="wrap">
+
 <div class="label">CLASS SCHEDULE</div>
-<h2 class="title">수련 시간 · 수련비 안내</h2>
+
+<h2 class="title">
+  수련 시간 · 수련비 안내
+</h2>
+
 
 <div class="schedule-grid">
 
 <div class="schedule-box">
+
   <div class="schedule-row">
     <strong>유치부</strong>
-    <span data-text-key="schedule_kids">관리자에서 시간을 입력해주세요.</span>
+    <span data-content="schedule_kids">시간을 입력해주세요.</span>
   </div>
+
   <div class="schedule-row">
     <strong>초등부</strong>
-    <span data-text-key="schedule_elementary">관리자에서 시간을 입력해주세요.</span>
+    <span data-content="schedule_elementary">시간을 입력해주세요.</span>
   </div>
+
   <div class="schedule-row">
     <strong>성인 오전반</strong>
-    <span data-text-key="schedule_adult_am">월 · 수 · 금 10:00</span>
+    <span data-content="schedule_adult_am">월 · 수 · 금 10:00</span>
   </div>
+
   <div class="schedule-row">
     <strong>성인 저녁반</strong>
-    <span data-text-key="schedule_adult_pm">화 · 목 20:30</span>
+    <span data-content="schedule_adult_pm">화 · 목 20:30</span>
   </div>
+
 </div>
+
 
 <div class="price">
+
   <h3>수련비 안내</h3>
+
   <div class="price-line">
-    <span data-text-key="price1_name">주 5회</span>
-    <span data-text-key="price1_value">관리자에서 입력</span>
+    <span data-content="price1_name">주 5회</span>
+    <span data-content="price1_value">금액 입력</span>
   </div>
+
   <div class="price-line">
-    <span data-text-key="price2_name">주 3회</span>
-    <span data-text-key="price2_value">관리자에서 입력</span>
+    <span data-content="price2_name">주 3회</span>
+    <span data-content="price2_value">금액 입력</span>
   </div>
+
   <div class="price-line">
-    <span data-text-key="price3_name">성인반</span>
-    <span data-text-key="price3_value">관리자에서 입력</span>
+    <span data-content="price3_name">성인반</span>
+    <span data-content="price3_value">금액 입력</span>
   </div>
+
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- 12. FAQ -->
+
+<!-- FAQ -->
 <section class="faq">
 <div class="wrap">
+
 <div class="label">FAQ</div>
-<h2 class="title">자주 묻는 질문</h2>
+
+<h2 class="title">
+  자주 묻는 질문
+</h2>
+
 
 <div class="faq-list">
-  <div class="faq-item">
-    <div class="question" data-text-key="faq1_q">태권도를 처음 시작하는 아이도 괜찮나요?</div>
-    <div class="answer" data-text-key="faq1_a">네. 처음 시작하는 아이도 수준에 맞춰 차근차근 지도합니다.</div>
+
+<div class="faq-item">
+  <div class="question" data-content="faq1_q">
+    태권도를 처음 시작하는 아이도 괜찮나요?
   </div>
-  <div class="faq-item">
-    <div class="question" data-text-key="faq2_q">무료 체험이 가능한가요?</div>
-    <div class="answer" data-text-key="faq2_a">상담 후 체험 가능한 시간과 프로그램을 안내해드립니다.</div>
+  <div class="answer" data-content="faq1_a">
+    네. 처음 시작하는 아이도 수준에 맞춰 차근차근 지도합니다.
   </div>
-  <div class="faq-item">
-    <div class="question" data-text-key="faq3_q">차량 운행도 하나요?</div>
-    <div class="answer" data-text-key="faq3_a">차량 운행 지역과 시간은 상담 시 안내해드립니다.</div>
+</div>
+
+<div class="faq-item">
+  <div class="question" data-content="faq2_q">
+    무료 체험이 가능한가요?
   </div>
-  <div class="faq-item">
-    <div class="question" data-text-key="faq4_q">성인도 처음부터 배울 수 있나요?</div>
-    <div class="answer" data-text-key="faq4_a">네. 성인 초보자도 기본동작부터 단계적으로 수련합니다.</div>
+  <div class="answer" data-content="faq2_a">
+    상담 후 체험 가능한 시간과 프로그램을 안내해드립니다.
   </div>
+</div>
+
+<div class="faq-item">
+  <div class="question" data-content="faq3_q">
+    차량 운행도 하나요?
+  </div>
+  <div class="answer" data-content="faq3_a">
+    차량 운행 지역과 시간은 상담 시 안내해드립니다.
+  </div>
+</div>
+
+<div class="faq-item">
+  <div class="question" data-content="faq4_q">
+    성인도 처음부터 배울 수 있나요?
+  </div>
+  <div class="answer" data-content="faq4_a">
+    네. 성인 초보자도 기본동작부터 단계적으로 수련합니다.
+  </div>
+</div>
+
 </div>
 </div>
 </section>
 
-<!-- 13. 무료체험 -->
+
+<!-- 무료체험 -->
 <section class="trial" id="trial">
 <div class="wrap">
 <div class="trial-inner">
 
 <div>
-  <div class="label" style="color:#07172b">FREE TRIAL</div>
-  <h2 data-text-key="trial_title">
-    고민보다 먼저,<br>한번 경험해보세요.
-  </h2>
-  <p data-text-key="trial_desc">
+
+  <div class="label" style="color:#07172b">
+    FREE TRIAL
+  </div>
+
+  <h2 data-content="trial_title">고민보다 먼저,
+한번 경험해보세요.</h2>
+
+  <p class="trial-copy" data-content="trial_desc">
     아이와 함께 방문해 직접 수련 분위기를 확인해보세요.
   </p>
+
 </div>
 
+
 <div class="trial-box">
-  <p><b>용인대 승리태권도 무료체험 · 상담</b></p>
-  <p data-text-key="trial_info">
+
+  <p>
+    <b>용인대 승리태권도 무료체험 · 상담</b>
+  </p>
+
+  <p data-content="trial_info">
     전화 또는 방문 상담을 통해 체험 가능한 시간을 안내해드립니다.
   </p>
+
   <a id="phoneButton" href="#location" class="trial-button">
     상담 문의하기
   </a>
+
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- 14. 오시는 길 -->
+
+<!-- 오시는 길 -->
 <section class="location" id="location">
 <div class="wrap">
+
 <div class="label">LOCATION</div>
-<h2 class="title">승리태권도 오시는 길</h2>
+
+<h2 class="title">
+  승리태권도 오시는 길
+</h2>
+
 
 <div class="location-grid">
 
 <div class="location-info">
+
   <div class="location-row">
     <small>ADDRESS</small>
-    <div data-text-key="address">관리자에서 정확한 주소를 입력해주세요.</div>
+    <div data-content="address">
+      관리자에서 정확한 주소를 입력해주세요.
+    </div>
   </div>
+
   <div class="location-row">
     <small>PHONE</small>
-    <div data-text-key="phone">관리자에서 전화번호를 입력해주세요.</div>
+    <div data-content="phone">
+      관리자에서 전화번호를 입력해주세요.
+    </div>
   </div>
+
   <div class="location-row">
     <small>VEHICLE</small>
-    <div data-text-key="vehicle">화정 전지역 차량 운행</div>
+    <div data-content="vehicle">
+      화정 전지역 차량 운행
+    </div>
   </div>
+
 </div>
 
+
 <div class="map-placeholder">
-  지도 영역<br>
-  관리자 기능 완성 후 네이버 지도 연결
+  네이버 지도 영역<br>
+  주소 입력 후 지도 연결 가능
 </div>
 
 </div>
@@ -966,95 +1533,333 @@ footer{
 
 </main>
 
+
 <footer>
 <div class="footer-inner">
+
 <div>
-  <div class="footer-name">용인대 <b>승리태권도</b></div>
-  <div style="font-size:13px;margin-top:7px">고양 화정동 태권도</div>
+  <div class="footer-name">
+    용인대 <b>승리태권도</b>
+  </div>
+
+  <div style="font-size:13px;margin-top:7px">
+    고양 화정동 태권도
+  </div>
 </div>
-<div style="font-size:12px">© VICTORY TAEKWONDO</div>
+
+<div style="font-size:12px">
+  © VICTORY TAEKWONDO
+</div>
+
 </div>
 </footer>
 
+
 <script>
-const SUPABASE_URL='https://aquthgfiutnweklyarku.supabase.co';
-const SUPABASE_KEY='sb_publishable_737beB68jbyhF-VwARkkrA_gyO6PiPz';
-const db=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-/* 관리자 데이터 불러오기 */
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL =
+  'https://aquthgfiutnweklyarku.supabase.co';
+
+const SUPABASE_KEY =
+  'sb_publishable_737beB68jbyhF-VwARkkrA_gyO6PiPz';
+
+const db = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+
+/* =========================
+   관리자 데이터 읽기
+========================= */
+
 async function loadSite(){
-  const {data,error}=await db
-    .from('site_content')
-    .select('*');
 
-  if(error){
-    console.log(error);
-    return;
+  try{
+
+    const { data, error } =
+      await db
+        .from('site_content')
+        .select('*');
+
+    if(error){
+      console.error('Supabase 불러오기 오류:',error);
+      return;
+    }
+
+    if(!data || data.length===0){
+      console.log('저장된 관리자 데이터가 없습니다.');
+      return;
+    }
+
+
+    /* ---------------------------------
+       같은 content_key가 여러 개 있을 경우
+       updated_at이 가장 최근인 값 사용
+    --------------------------------- */
+
+    const latest = {};
+
+    data.forEach(row=>{
+
+      const key = row.content_key;
+
+      if(!key) return;
+
+      if(!latest[key]){
+        latest[key] = row;
+        return;
+      }
+
+      const oldTime =
+        new Date(latest[key].updated_at || 0).getTime();
+
+      const newTime =
+        new Date(row.updated_at || 0).getTime();
+
+      if(newTime >= oldTime){
+        latest[key] = row;
+      }
+
+    });
+
+
+    /* =========================
+       글자 적용
+    ========================= */
+
+    document
+      .querySelectorAll('[data-content]')
+      .forEach(element=>{
+
+        const key =
+          element.getAttribute('data-content');
+
+        if(
+          latest[key] &&
+          latest[key].content_value !== null &&
+          latest[key].content_value !== undefined &&
+          latest[key].content_value !== ''
+        ){
+          element.textContent =
+            latest[key].content_value;
+        }
+
+      });
+
+
+    /* =========================
+       사진 적용
+    ========================= */
+
+    const photoKeys = [
+
+      'director_photo',
+
+      'teacher1_photo',
+      'teacher2_photo',
+      'teacher3_photo',
+
+      'kids_photo',
+
+      'program1_photo',
+      'program2_photo',
+      'program3_photo',
+      'program4_photo',
+      'program5_photo',
+      'program6_photo',
+
+      'adult_photo',
+
+      'space1_photo',
+      'space2_photo',
+      'space3_photo',
+      'space4_photo',
+      'space5_photo'
+    ];
+
+
+    photoKeys.forEach(key=>{
+
+      if(
+        latest[key] &&
+        latest[key].content_value
+      ){
+
+        setPhoto(
+          key,
+          latest[key].content_value
+        );
+
+      }
+
+    });
+
+
+    /* =========================
+       메인 사진
+    ========================= */
+
+    let heroURL = '';
+
+    /*
+       새 관리자에서 저장한 hero_photo 우선
+    */
+
+    if(
+      latest.hero_photo &&
+      latest.hero_photo.content_value
+    ){
+      heroURL =
+        latest.hero_photo.content_value;
+    }
+
+    /*
+       예전 관리자 main_photo도 호환
+    */
+
+    else if(
+      latest.main_photo &&
+      latest.main_photo.content_value
+    ){
+      heroURL =
+        latest.main_photo.content_value;
+    }
+
+
+    if(heroURL){
+
+      const hero =
+        document.getElementById('hero_photo');
+
+      if(hero){
+        hero.src = heroURL;
+      }
+
+    }
+
+
+    /* 전화 버튼 갱신 */
+
+    updatePhoneButton();
+
+
+    console.log(
+      '승리태권도 홈페이지 관리자 데이터 적용 완료'
+    );
+
   }
 
-  if(!data) return;
+  catch(err){
 
-  data.forEach(row=>{
-    const key=row.content_key;
-    const value=row.content_value;
-    if(!value) return;
+    console.error(
+      '홈페이지 데이터 적용 중 오류:',
+      err
+    );
 
-    /* 새 관리자 형식 */
-    const textEl=document.querySelector(`[data-text-key="${key}"]`);
-    if(textEl){
-      textEl.textContent=value;
-    }
-
-    const placeholder=document.querySelector(`[data-placeholder="${key}"]`);
-    if(placeholder && value){
-      const img=document.createElement('img');
-      img.src=value;
-      img.alt='용인대 승리태권도';
-      placeholder.replaceWith(img);
-    }
-
-    const imageEl=document.querySelector(`[data-image-key="${key}"]`);
-    if(imageEl){
-      imageEl.src=value;
-    }
-
-    /* 기존 관리자에서 올린 대표사진도 호환 */
-    if(row.section==='images' && key==='main_photo'){
-      const hero=document.querySelector('[data-image-key="hero_photo"]');
-      if(hero) hero.src=value;
-    }
-
-    /* 기존 관리자에서 저장했던 내용도 일부 호환 */
-    const oldMap={
-      title:'hero_title',
-      description:'hero_desc',
-      kids:'schedule_kids',
-      elementary:'schedule_elementary',
-      adult_morning:'schedule_adult_am',
-      adult_evening:'schedule_adult_pm'
-    };
-
-    if(oldMap[key]){
-      const el=document.querySelector(`[data-text-key="${oldMap[key]}"]`);
-      if(el && value) el.textContent=value;
-    }
-  });
-
-  updatePhoneLink();
-}
-
-function updatePhoneLink(){
-  const phoneEl=document.querySelector('[data-text-key="phone"]');
-  const btn=document.getElementById('phoneButton');
-  if(!phoneEl || !btn) return;
-
-  const phone=phoneEl.textContent.replace(/[^0-9]/g,'');
-  if(phone.length>=9){
-    btn.href='tel:'+phone;
   }
+
 }
 
-loadSite();
+
+/* =========================
+   사진 교체 함수
+
+   중요:
+   DIV 자체를 삭제하지 않고
+   안의 내용만 바꾸므로
+   관리자가 사진을 여러 번
+   변경해도 계속 작동합니다.
+========================= */
+
+function setPhoto(key,url){
+
+  const box =
+    document.getElementById(key);
+
+  if(!box || !url) return;
+
+  box.innerHTML = '';
+
+  const img =
+    document.createElement('img');
+
+  img.src = url;
+
+  img.alt =
+    '용인대 승리태권도';
+
+  img.loading = 'lazy';
+
+  img.onerror = function(){
+
+    console.error(
+      '사진을 불러오지 못했습니다:',
+      key,
+      url
+    );
+
+  };
+
+  box.appendChild(img);
+
+}
+
+
+/* =========================
+   전화 상담 버튼
+========================= */
+
+function updatePhoneButton(){
+
+  const phoneElement =
+    document.querySelector(
+      '[data-content="phone"]'
+    );
+
+  const button =
+    document.getElementById(
+      'phoneButton'
+    );
+
+  if(
+    !phoneElement ||
+    !button
+  ) return;
+
+
+  const phone =
+    phoneElement
+      .textContent
+      .replace(/[^0-9]/g,'');
+
+
+  if(phone.length >= 9){
+
+    button.href =
+      'tel:' + phone;
+
+    button.textContent =
+      '전화 상담하기';
+
+  }
+
+}
+
+
+/* =========================
+   페이지 시작
+========================= */
+
+document.addEventListener(
+  'DOMContentLoaded',
+  loadSite
+);
+
 </script>
 
 </body>
