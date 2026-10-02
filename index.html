@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>용인대 승리태권도 | 고양 화정동 태권도 · 유치부 전용반 · 성인 태권도</title>
+
+<meta name="description" content="고양시 덕양구 화정동 용인대 승리태권도. 유치부 전용반부터 초등부, 품새, 체력, 성인 태권도까지 체계적으로 지도합니다.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Pretendard","Noto Sans KR",Arial,sans-serif;
+  color:#161616;
+  line-height:1.7;
+  background:#fff;
+}
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:72px;
+  background:rgba(7,17,32,.95);
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 7%;
+  color:white;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+.logo span{
+  color:#d6ae5b;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:25px;
+  font-size:14px;
+}
+
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(90deg,rgba(5,14,28,.94),rgba(5,14,28,.58)),
+    linear-gradient(135deg,#101d31,#26384e);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  padding:120px 8% 70px;
+}
+
+.hero-content{
+  max-width:900px;
+}
+
+.hero-small{
+  color:#d6ae5b;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:65px;
+  line-height:1.15;
+  letter-spacing:-4px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:#d6ae5b;
+}
+
+.hero p{
+  font-size:21px;
+  color:#e5e9ef;
+  margin-bottom:35px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 27px;
+  background:#d6ae5b;
+  color:#111;
+  text-decoration:none;
+  font-weight:800;
+  border-radius:4px;
+  margin-right:8px;
+}
+
+.btn-outline{
+  background:transparent;
+  color:white;
+  border:1px solid rgba(255,255,255,.5);
+}
+
+section{
+  padding:100px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:55px;
+}
+
+.section-title small{
+  color:#b48b3d;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.section-title h2{
+  font-size:38px;
+  margin-top:8px;
+  letter-spacing:-2px;
+}
+
+.section-title p{
+  color:#777;
+  margin-top:10px;
+}
+
+.intro{
+  background:#f6f7f9;
+}
+
+.intro-box{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+  font-size:18px;
+  color:#444;
+}
+
+.intro-box strong{
+  color:#b48b3d;
+}
+
+.cards{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card{
+  padding:38px 28px;
+  border:1px solid #e4e4e4;
+  background:white;
+  border-radius:8px;
+}
+
+.card .number{
+  font-size:14px;
+  font-weight:900;
+  color:#c09a50;
+}
+
+.card h3{
+  font-size:23px;
+  margin:12px 0;
+}
+
+.card p{
+  color:#666;
+  font-size:15px;
+}
+
+.program{
+  background:#0c1828;
+  color:white;
+}
+
+.program .section-title p{
+  color:#adb5c0;
+}
+
+.program .card{
+  background:#142337;
+  border:none;
+}
+
+.program .card p{
+  color:#bec6d0;
+}
+
+.program .card h3{
+  color:white;
+}
+
+.kindergarten{
+  background:#faf6ee;
+}
+
+.adult{
+  background:#f4f5f7;
+}
+
+.schedule-wrap{
+  max-width:900px;
+  margin:auto;
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+th{
+  background:#0c1828;
+  color:white;
+}
+
+th,td{
+  padding:16px;
+  border:1px solid #ddd;
+  text-align:center;
+}
+
+.contact{
+  background:#0c1828;
+  color:white;
+  text-align:center;
+}
+
+.contact h2{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.contact p{
+  color:#c5cbd3;
+  margin-bottom:30px;
+}
+
+.info{
+  margin-top:35px;
+  font-size:16px;
+}
+
+footer{
+  padding:35px 8%;
+  background:#070e18;
+  color:#818995;
+  text-align:center;
+  font-size:13px;
+}
+
+@media(max-width:800px){
+
+  header{
+    height:62px;
+    padding:0 5%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  .hero{
+    min-height:90vh;
+    padding:110px 7% 60px;
+  }
+
+  .hero h1{
+    font-size:44px;
+    letter-spacing:-3px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  section{
+    padding:75px 6%;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .contact h2{
+    font-size:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">용인대 <span>승리태권도</span></div>
+
+  <nav>
+    <a href="#about">도장소개</a>
+    <a href="#program">교육프로그램</a>
+    <a href="#kids">유치부</a>
+    <a href="#adult">성인부</a>
+    <a href="#schedule">수련시간</a>
+    <a href="#contact">상담문의</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      YONGIN UNIVERSITY · VICTORY TAEKWONDO
+    </div>
+
+    <h1>
+      아이의 오늘이<br>
+      <span>승리의 내일</span>이 됩니다.
+    </h1>
+
+    <p>
+      고양 화정동 태권도<br>
+      유치부부터 초등부 · 품새 · 성인 태권도까지
+    </p>
+
+    <a class="btn" href="#contact">상담 문의</a>
+    <a class="btn btn-outline" href="#program">프로그램 보기</a>
+
+  </div>
+
+</section>
+
+
+<section class="intro" id="about">
+
+  <div class="section-title">
+    <small>ABOUT VICTORY</small>
+    <h2>용인대 승리태권도</h2>
+    <p>태권도를 통해 몸과 마음이 함께 성장합니다.</p>
+  </div>
+
+  <div class="intro-box">
+
+    <p>
+      태권도는 단순히 발차기와 품새를 배우는 운동이 아닙니다.<br><br>
+
+      아이들이 스스로 목표를 세우고,
+      어려운 순간에도 다시 도전하며
+      끝까지 해내는 힘을 기르는 과정입니다.<br><br>
+
+      <strong>용인대 승리태권도</strong>는
+      아이 한 명, 한 명의 성장을 소중하게 생각하며
+      바른 인성과 자신감을 함께 지도합니다.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section id="program">
+
+  <div class="section-title">
+    <small>EDUCATION</small>
+    <h2>승리의 교육</h2>
+    <p>태권도 수련을 통해 아이의 가능성을 키웁니다.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="number">01</div>
+      <h3>바른 인성</h3>
+      <p>
+        예의와 배려를 배우고 스스로 행동할 수 있는
+        바른 습관을 만들어갑니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">02</div>
+      <h3>자신감</h3>
+      <p>
+        작은 목표부터 하나씩 성취하며
+        스스로에 대한 자신감을 키웁니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">03</div>
+      <h3>건강한 체력</h3>
+      <p>
+        태권도와 다양한 신체활동을 통해
+        균형 잡힌 체력과 운동 습관을 만듭니다.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="program" id="kids">
+
+  <div class="section-title">
+    <small>KIDS PROGRAM</small>
+    <h2>유치부 전용 프로그램</h2>
+    <p>아이의 눈높이에 맞춘 즐거운 태권도 수업</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>태권도 기초</h3>
+      <p>
+        기본동작과 발차기를 쉽고 재미있게 배우며
+        태권도에 자연스럽게 적응합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>신체발달</h3>
+      <p>
+        달리기, 점프, 균형 운동 등 다양한 활동으로
+        아이들의 기초체력을 키웁니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>인성교육</h3>
+      <p>
+        인사, 질서, 배려, 약속 등
+        생활 속에서 필요한 좋은 습관을 배웁니다.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="adult" id="adult">
+
+  <div class="section-title">
+    <small>ADULT TAEKWONDO</small>
+    <h2>성인 태권도</h2>
+    <p>나이와 경험에 관계없이 시작할 수 있습니다.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>기초부터 차근차근</h3>
+      <p>
+        태권도가 처음이신 분도 기본동작부터
+        단계적으로 수련할 수 있습니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>체력 · 건강관리</h3>
+      <p>
+        유연성, 근력, 심폐체력을 함께 키우며
+        건강한 운동 습관을 만듭니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>품새 · 승단</h3>
+      <p>
+        체계적인 품새 수련과
+        개인별 목표에 맞춘 승단 지도를 진행합니다.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="schedule">
+
+  <div class="section-title">
+    <small>CLASS SCHEDULE</small>
+    <h2>수련 안내</h2>
+    <p>연령과 목적에 맞는 다양한 수련 프로그램을 운영합니다.</p>
+  </div>
+
+  <div class="schedule-wrap">
+
+    <table>
+      <tr>
+        <th>프로그램</th>
+        <th>운영</th>
+        <th>안내</th>
+      </tr>
+
+      <tr>
+        <td>유치부</td>
+        <td>평일</td>
+        <td>유아 눈높이에 맞춘 태권도 · 신체활동</td>
+      </tr>
+
+      <tr>
+        <td>초등부</td>
+        <td>평일</td>
+        <td>태권도 · 품새 · 체력 · 인성교육</td>
+      </tr>
+
+      <tr>
+        <td>성인 오전반</td>
+        <td>월 · 수 · 금 10:00</td>
+        <td>기초 · 체력 · 품새</td>
+      </tr>
+
+      <tr>
+        <td>성인 저녁반</td>
+        <td>화 · 목 20:30</td>
+        <td>기초 · 체력 · 품새</td>
+      </tr>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+  <h2>태권도의 첫 시작,<br>승리와 함께하세요.</h2>
+
+  <p>
+    아이에게 맞는 수련 프로그램이 궁금하시다면<br>
+    편하게 상담해 주세요.
+  </p>
+
+  <a class="btn" href="tel:">전화 상담하기</a>
+
+  <div class="info">
+    <strong>용인대 승리태권도</strong><br>
+    경기도 고양시 덕양구 화정동<br>
+    백양빌딩 4층
+  </div>
+
+</section>
+
+
+<footer>
+  © 2026 용인대 승리태권도. All Rights Reserved.
+</footer>
+
+</body>
+</html>
