@@ -339,6 +339,7 @@ footer b{display:block;font-size:20px;color:var(--dark);margin-bottom:8px;font-w
 </style>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23E53935%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2223%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-weight%3D%22900%22%20font-size%3D%2222%22%20fill%3D%22white%22%3EV%3C%2Ftext%3E%3C%2Fsvg%3E">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 <header class="header" id="hdr">
@@ -702,11 +703,6 @@ const SITE = {
     $$('.rv').forEach(el=>io.observe(el));
   } else { $$('.rv').forEach(el=>el.classList.add('in')); fillBars(); }
 
-  $$('[data-count]').forEach(el=>{
-    const end=+el.dataset.count, suf=el.textContent.replace(/[0-9]/g,''); let t0=null;
-    const step=ts=>{ if(!t0) t0=ts; const p=Math.min(1,(ts-t0)/1400); el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+suf; if(p<1) requestAnimationFrame(step); };
-    setTimeout(()=>requestAnimationFrame(step), 500);
-  });
 
   $$('[data-tel]').forEach(a=>{ if(digits){ a.href='tel:'+digits; } });
   $$('[data-phone]').forEach(el=>{ el.textContent = SITE.phone; });
@@ -755,120 +751,48 @@ const SITE = {
   });
 })();
 </script>
-<script>
-/* 원장님 직접 수정 기능 (문구 + 사진)
-   - 방문자: /api/content 에 저장된 수정 내용을 페이지에 덮어씀
-   - 관리자: /admin 에서 비밀번호 입력 → 화면 그대로 글 수정, 사진 클릭해서 교체 → 저장 */
-(function () {
+<script>window.VICTORY_CONFIG={"url":"https://aquthgfiutnweklyarku.supabase.co","key":"sb_publishable_737beB68jbyhF-VwARkkrA_gyO6PiPz"};
+(function(){
   'use strict';
-  var root = document.documentElement;
-  var IS_ADMIN = location.pathname.replace(/\/+$/, '') === '/admin';
-  var $ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-
-  /* ---------- 1. 수정 가능한 글/사진 찾기 ---------- */
-  var SKIP_TAGS = { SCRIPT: 1, STYLE: 1, FORM: 1, BUTTON: 1, A: 1, IMG: 1, SVG: 1, TEXTAREA: 1, INPUT: 1, SELECT: 1, IFRAME: 1, VIDEO: 1, TABLE: 1 };
-  var BLOCKERS = 'p,h1,h2,h3,h4,h5,h6,div,ul,ol,li,img,a,form,details,section,table,button,dl,dt,dd,summary';
-  var BLOCK_UNITS = { H1: 1, H2: 1, H3: 1, H4: 1, H5: 1, P: 1, SUMMARY: 1, DT: 1, DD: 1 };
-
-  function hasDirectText(el) {
-    for (var n = el.firstChild; n; n = n.nextSibling) if (n.nodeType === 3 && n.nodeValue.trim()) return true;
-    return false;
-  }
-  function skipEl(el) {
-    return SKIP_TAGS[el.tagName] || el.getAttribute('aria-hidden') === 'true' || el.hasAttribute('data-count') ||
-      el.hasAttribute('data-hours') || el.hasAttribute('data-director') || el.id === 'cmsBar' ||
-      el.classList.contains('ticker') || el.classList.contains('bottom-bar') || el.classList.contains('result') || el.classList.contains('form-msg');
-  }
-  function collectTexts(rootEl, out) {
-    for (var c = rootEl.firstElementChild; c; c = c.nextElementSibling) {
-      if (skipEl(c)) continue;
-      var isUnit = (BLOCK_UNITS[c.tagName] || hasDirectText(c)) && !c.querySelector(BLOCKERS);
-      if (isUnit) { if (c.textContent.trim()) out.push(c); }
-      else collectTexts(c, out);
+  const CONFIG=window.VICTORY_CONFIG;
+  const db=window.supabase.createClient(CONFIG.url,CONFIG.key);
+  window.victoryDb=db;
+  const skipTags=new Set(['SCRIPT','STYLE','FORM','BUTTON','IMG','SVG','TEXTAREA','INPUT','SELECT','IFRAME','VIDEO']);
+  const blocks='p,h1,h2,h3,h4,h5,h6,div,ul,ol,li,img,a,form,details,section,table,button,dl,dt,dd,summary';
+  const units=new Set(['H1','H2','H3','H4','H5','H6','P','SUMMARY','DT','DD','TD','TH']);
+  const texts=[];
+  function collect(parent){
+    for(const el of parent.children){
+      if(skipTags.has(el.tagName)||el.getAttribute('aria-hidden')==='true'||el.classList.contains('bottom-bar')||el.classList.contains('result')||el.classList.contains('form-msg'))continue;
+      const direct=[...el.childNodes].some(n=>n.nodeType===3&&n.nodeValue.trim());
+      if((units.has(el.tagName)||direct)&&!el.querySelector(blocks)){
+        if(el.textContent.trim())texts.push(el);
+      }else collect(el);
     }
   }
-  function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); }
-  function norm(html) { return html.replace(/\s+/g, ' ').trim(); }
-
-  var textUnits = [];
-  ['main', 'footer'].forEach(function (s) { var r = document.querySelector(s); if (r) collectTexts(r, textUnits); });
-  var seen = {};
-  textUnits.forEach(function (el) {
-    var h = hash(norm(el.innerHTML));
-    seen[h] = (seen[h] || 0) + 1;
-    el.dataset.cmsKey = 't' + h + (seen[h] > 1 ? '_' + seen[h] : '');
-    el.dataset.cmsOrig = el.innerHTML;
-  });
-
-  function imgKey(src) {
-    var m = String(src || '').match(/([^\/?#]+?)\.(jpe?g|png|webp|gif|avif)(?:[?#]|$)/i);
-    return m ? m[1].replace(/[^\w-]/g, '_') : null;
+  ['main','footer'].forEach(s=>{const r=document.querySelector(s);if(r)collect(r)});
+  function hash(s){let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return(h>>>0).toString(36)}
+  const seen={};
+  texts.forEach(el=>{const h=hash(el.innerHTML.replace(/\s+/g,' ').trim());seen[h]=(seen[h]||0)+1;el.dataset.cmsKey='t'+h+(seen[h]>1?'_'+seen[h]:'');el.dataset.cmsOrig=el.innerHTML});
+  const images=[];
+  function key(src){const m=String(src).match(/([^\/?#]+?)\.(jpe?g|png|webp|gif|avif)(?:[?#]|$)/i);return m?m[1].replace(/[^\w-]/g,'_'):null}
+  document.querySelectorAll('main img,footer img').forEach(el=>{const k=key(el.getAttribute('src'));if(k){el.dataset.cmsImage=k;images.push({el,key:k,kind:'img',orig:el.getAttribute('src')})}});
+  document.querySelectorAll('main *').forEach(el=>{if(el.tagName==='IMG')return;const m=getComputedStyle(el).backgroundImage.match(/url\(["']?([^"')]+)["']?\)/);if(m){const k=key(m[1]);if(k){el.dataset.cmsImage=k;images.push({el,key:k,kind:'bg',orig:m[1]})}}});
+  function sanitize(html){
+    const allowed=new Set(['BR','B','STRONG','EM','I','SPAN','SMALL','U']);
+    const t=document.createElement('template');t.innerHTML=html;
+    function walk(node){[...node.childNodes].forEach(n=>{if(n.nodeType===1){if(['SCRIPT','STYLE','IFRAME','OBJECT'].includes(n.tagName)){n.remove();return}walk(n);if(!allowed.has(n.tagName)){if(['DIV','P'].includes(n.tagName))n.before(document.createElement('br'));n.replaceWith(...n.childNodes)}else [...n.attributes].forEach(a=>{if(a.name!=='class')n.removeAttribute(a.name)})}else if(n.nodeType!==3)n.remove()})}
+    walk(t.content);return t.innerHTML;
   }
-  var imgEls = []; // {el, key, kind:'img'|'bg', orig}
-  $('main img, footer img').forEach(function (img) {
-    var k = imgKey(img.getAttribute('src'));
-    if (k) imgEls.push({ el: img, key: k, kind: 'img', orig: img.getAttribute('src') });
-  });
-  $('main *').forEach(function (el) {
-    if (el.tagName === 'IMG') return;
-    var bg = getComputedStyle(el).backgroundImage;
-    var m = bg && bg.match(/url\(["']?([^"')]+)["']?\)/);
-    if (m && /\/img\//.test(m[1])) { var k = imgKey(m[1]); if (k) imgEls.push({ el: el, key: k, kind: 'bg', orig: null }); }
-  });
-
-  /* ---------- 2. 저장된 내용 덮어쓰기 ---------- */
-  var ALLOWED = { BR: 1, B: 1, STRONG: 1, EM: 1, I: 1, SPAN: 1, SMALL: 1, U: 1 };
-  function sanitize(html) {
-    var t = document.createElement('template');
-    t.innerHTML = html;
-    (function walk(node) {
-      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
-        if (n.nodeType === 1) {
-          walk(n);
-          if (!ALLOWED[n.tagName]) {
-            if (n.tagName === 'DIV' || n.tagName === 'P') n.parentNode.insertBefore(document.createElement('br'), n);
-            while (n.firstChild) n.parentNode.insertBefore(n.firstChild, n);
-            n.parentNode.removeChild(n);
-          } else {
-            Array.prototype.slice.call(n.attributes).forEach(function (a) { if (a.name !== 'class') n.removeAttribute(a.name); });
-          }
-        } else if (n.nodeType !== 3) n.parentNode.removeChild(n);
-      });
-    })(t.content);
-    return t.innerHTML.replace(/(<br>\s*)+$/, '');
+  function setImage(item,url){
+    if(!url){if(item.kind==='img'){item.el.removeAttribute('src');item.el.style.visibility='hidden'}else item.el.style.backgroundImage='none';return}
+    let parsed;try{parsed=new URL(url)}catch{return}if(parsed.protocol!=='https:')return;
+    if(item.kind==='img'){item.el.removeAttribute('srcset');item.el.src=url;item.el.style.visibility=''}else item.el.style.backgroundImage='url("'+url.replace(/"/g,'%22')+'")';
   }
-  function setImage(item, url) {
-    if (item.kind === 'img') { item.el.removeAttribute('srcset'); item.el.src = url; }
-    else item.el.style.backgroundImage = 'url("' + url.replace(/"/g, '%22') + '")';
-  }
-  function resetImage(item) {
-    if (item.kind === 'img') item.el.src = item.orig;
-    else item.el.style.backgroundImage = '';
-  }
-  var data = { texts: {}, images: {} };
-  function apply(d) {
-    data = { texts: (d && d.texts) || {}, images: (d && d.images) || {} };
-    textUnits.forEach(function (el) {
-      var v = data.texts[el.dataset.cmsKey];
-      if (typeof v === 'string') el.innerHTML = sanitize(v);
-    });
-    imgEls.forEach(function (it) { var u = data.images[it.key]; if (u && /^https:\/\//.test(u)) setImage(it, u); });
-  }
-
-  var p = window.__cmsP || fetch('/api/content' + (IS_ADMIN ? '?t=' + Date.now() : '')).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; });
-  var LS_KEY = 'cmsLastSaved:' + location.host;
-  p.then(function (d) {
-    // 저장 직후 새로고침하면 서버가 몇 초 늦을 수 있어서, 관리자 화면에서는 방금 저장한 내용을 우선 사용
-    if (IS_ADMIN) {
-      try {
-        var local = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
-        if (local && local.updatedAt && (!d || !d.updatedAt || local.updatedAt > d.updatedAt)) d = local;
-      } catch (e) {}
-    }
-    try { apply(d); } catch (e) { console.warn(e); }
-  })
-    .then(function () { root.classList.remove('cms-wait');  });
-
+  function apply(rows){for(const row of rows||[]){if(row.section==='content'){texts.filter(el=>el.dataset.cmsKey===row.content_key).forEach(el=>el.innerHTML=sanitize(row.content_value||''))}else if(row.section==='images'){images.filter(it=>it.key===row.content_key).forEach(it=>setImage(it,row.content_value||''))}}}
+  const api={db,texts,images,sanitize,setImage,apply,loaded:false,loadError:null};
+  window.victoryContent=api;
+  api.ready=(async()=>{try{const r=await db.from('site_content').select('section,content_key,content_value,updated_at');if(r.error)throw r.error;apply(r.data);api.loaded=true;return r.data||[]}catch(e){api.loadError=e.message||String(e);console.warn('저장된 콘텐츠를 불러오지 못했습니다.',api.loadError);return null}})();
 })();
 </script>
 </body>
