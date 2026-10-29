@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victory-tkd.vercel.app/sitemap.xml
